@@ -20,6 +20,8 @@ hygieia-ui:
   container_name: hygieia-ui
   ports:
   - "8088:80"
+  volumes:
+  - ./logs:/hygieia/logs
   links:
   - hygieia-api
 jira:
@@ -30,6 +32,49 @@ jira:
 hygieia-jira:
   image:  cprimedevops/hygieia-jira-feature-collector
   container_name: hygieia-jira
+  volumes:
+  - ./logs:/hygieia/logs
   links:
   - jira
+  - mongodb:mongo
+  - hygieia-api
+jenkins:
+  image: cprimedevops/jenkins:hygieiaDemo
+  container_name: jenkins
+  ports:
+  - "8090:8080"
+  links:
+  - sonarqube
+hygieia-jenkins-build:
+  image: cprimedevops/hygieia-jenkins-build-collector
+  container_name:  hygieia-jenkins-build
+  volumes:
+  - ./logs:/hygieia/logs
+  links:
+  - jenkins
+  - mongodb:mongo
+  - hygieia-api
+sonarqube:
+  image: cprimedevops/sonarqube
+  container_name: sonarqube
+  ports:
+  - "9000:9000"
+  - "9092:9092"
+hygieia-sonar-build:
+  image: cprimedevops/hygieia-sonar-codequality-collector
+  container_name: hygieia-sonar-build
+  volumes:
+  - ./logs:/hygieia/logs
+  links:
+  - sonarqube
+  - mongodb:mongo
+  - jenkins
+  - hygieia-api
+hygieia-github:
+  image: cprimedevops/hygieia-github-collector
+  container_name: hygieia-github
+  volumes:
+  - ./logs:/hygieia/logs
+  links:
+  - hygieia-api
   - mongodb:mongo
