@@ -1,0 +1,35 @@
+mongodb:
+  image: cprime/mongodb:latest
+  container_name: mongodb
+  command: mongod --smallfiles
+  ports:
+   - "27017:27017"
+  volumes:
+   - ./mongo:/data/db:rw
+hygieia-api:
+  image: cprime/hygieia-api:latest
+  container_name: hygieia-api
+  ports:
+  - "8080:8080"
+  volumes:
+  - ./logs:/hygieia/logs
+  links:
+  - mongodb:mongo
+hygieia-ui:
+  image: cprime/hygieia-ui:latest
+  container_name: hygieia-ui
+  ports:
+  - "8088:80"
+  links:
+  - hygieia-api
+jira:
+  image: cprime/jira:hygieiaDemo
+  container_name: jira
+  ports:
+  - "8081:8081"
+hygieia-jira:
+  image:  cprime/hygieia-jira-feature-collector
+  container_name: hygieia-jira
+  links:
+  - jira
+  - mongodb:mongo
