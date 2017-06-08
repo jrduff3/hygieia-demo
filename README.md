@@ -1,4 +1,4 @@
-##Hygieia POC
+# Hygieia POC
 
 Hygieia℠ is a single, configurable, easy to use dashboard to visualize near real-time status of the entire delivery pipeline. For more information on Hygieia please refer to the [GitHub repository](https://github.com/capitalone/Hygieia) and [CapitalOne DEVEXCHANGE](https://developer.capitalone.com/opensource-projects/hygieia/).
 
@@ -9,3 +9,15 @@ If you follow the guides you should be able to get this up and running. I did ru
 
 Due to the complexity of the configuration I deployed all the applications and collectors with docker. Then developed a docker-compose.yml file and push this to github https://github.com/jrduff3/hygieia-demo.git along with the Mongo db data volume. All the corresponding docker images were committed and pushed up to dockerhub. To reproduce the POC please use the following steps:
 Note: you will need Docker and docker-compose installed along with Git.
+
+'''bash
+$ git clone https://github.com/jrduff3/hygieia-demo.git
+Cloning into 'hygieia-demo'...
+remote: Counting objects: 124, done.
+remote: Compressing objects: 100% (45/45), done.
+remote: Total 124 (delta 78), reused 122 (delta 76), pack-reused 0
+Receiving objects: 100% (124/124), 173.91 MiB | 9.45 MiB/s, done.
+Resolving deltas: 100% (78/78), done.
+Checking connectivity... done.
+Checking out files: 100% (105/105), done.
+'''
