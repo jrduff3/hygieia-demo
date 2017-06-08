@@ -118,6 +118,6 @@ Now you can go to a browser and enter the following to access the Hygieia dashbo
 http://${docker-host-ip-address}:8088 
 This will bring you to the Hygieia dashboard:
 
-![alt text](https://github.com/jrduff3/hygieia-demo/dashboard1.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/dashboard1.png)
 
-You can login hto the dashboard by selecting the Login button:![alt text](https://github.com/jrduff3/hygieia-demo/loginbutton.png)   on te upper right pane of the screen:
+You can login hto the dashboard by selecting the Login button:![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/loginbutton.png)   on te upper right pane of the screen:
