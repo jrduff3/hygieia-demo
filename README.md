@@ -21,3 +21,103 @@ Resolving deltas: 100% (78/78), done.
 Checking connectivity... done.
 Checking out files: 100% (105/105), done.
 ```
+
+Now go into the hygieia-demo directory and run "docker-compose up -d" This part will take a few minute because it will need to download all the docker images and start up the applications:
+
+```bash
+$ cd hygieia-demo/
+[hygieia-demo]$ docker-compose up -d 
+WARNING: The Docker Engine you're using is running in swarm mode.
+ 
+Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+ 
+To deploy your application across the swarm, use `docker stack deploy`.
+ 
+Pulling mongodb (cprimedevops/mongodb:latest)...
+latest: Pulling from cprimedevops/mongodb
+e45e882ed798: Pull complete
+b03f96593290: Pull complete
+90df9ef9b571: Pull complete
+a647e09745f6: Pull complete
+b394c03fdf0b: Pull complete
+081d72a1938b: Pull complete
+7584b1f09d77: Pull complete
+9504d8d990d3: Pull complete
+ef2c764578cc: Pull complete
+2369c7a1c288: Pull complete
+bb0dcc8bccd7: Pull complete
+9fb5815867a0: Pull complete
+Digest: sha256:db5fbcbef1b6237b285e2a39d0248c3cb72fac41a7365e32c661a8f4d2ea1434
+Status: Downloaded newer image for cprimedevops/mongodb:latest
+Pulling hygieia-api (cprimedevops/hygieia-api:latest)...
+latest: Pulling from cprimedevops/hygieia-api
+846bf2170f96: Already exists
+a3ed95caeb02: Already exists
+6b04cfa6ca9c: Already exists
+5143f090214c: Already exists
+8d825e2e6fa4: Already exists
+2dee158e1c76: Already exists
+.
+.
+.
+latest: Pulling from cprimedevops/hygieia-github-collector
+846bf2170f96: Already exists
+a3ed95caeb02: Already exists
+6b04cfa6ca9c: Already exists
+5143f090214c: Already exists
+8d825e2e6fa4: Already exists
+2dee158e1c76: Already exists
+a3a6e58cccbd: Already exists
+58980f0906b9: Already exists
+01376126a64b: Already exists
+f0c9808d4ebf: Pull complete
+0ccd7292a671: Pull complete
+c52970548358: Pull complete
+Digest: sha256:dbb27eeddcf9dd0f467c8da6c152f353bccc36acf06bb44ad5e89e73865f5f2d
+Status: Downloaded newer image for cprimedevops/hygieia-github-collector:latest
+Creating mongodb ...
+Creating jira ...
+Creating sonarqube ...
+Creating mongodb
+Creating jira
+Creating sonarqube ... done
+Creating hygieia-api ...
+Creating jenkins ...
+Creating hygieia-api
+Creating hygieia-api ... done
+Creating hygieia-jira ...
+Creating jenkins ... done
+Creating hygieia-ui ...
+Creating hygieia-jenkins-build ...
+Creating hygieia-sonar-build ...
+Creating hygieia-ui
+Creating hygieia-github
+Creating hygieia-jira
+Creating hygieia-jenkins-build
+Creating hygieia-sonar-build ... done
+```
+
+When you execute a docker ps you should see all the containers running:
+
+```bash
+$ docker ps
+CONTAINER ID        IMAGE                                              COMMAND                  CREATED              STATUS              PORTS                                                                                   NAMES
+9a2bf7854527        cprimedevops/hygieia-sonar-codequality-collector   "/bin/sh -c './sonar-"   About a minute ago   Up 58 seconds                                                                                               hygieia-sonar-build
+b9aa56caafa6        cprimedevops/hygieia-jenkins-build-collector       "/bin/sh -c './jenkin"   About a minute ago   Up About a minute                                                                                           hygieia-jenkins-build
+f6de73781046        cprimedevops/hygieia-jira-feature-collector        "/bin/sh -c './jira-p"   About a minute ago   Up About a minute                                                                                           hygieia-jira
+f614808d8c8f        cprimedevops/hygieia-ui:latest                     "/bin/sh -c 'conf-bui"   About a minute ago   Up About a minute   443/tcp, 0.0.0.0:8088->80/tcp                                                           hygieia-ui
+f4f617aeeb27        cprimedevops/hygieia-github-collector              "/bin/sh -c './github"   About a minute ago   Up About a minute                                                                                           hygieia-github
+77417d80280e        cprimedevops/jenkins:hygieiaDemo                   "/bin/sh -c 'java -ja"   About a minute ago   Up About a minute   0.0.0.0:8090->8080/tcp                                                                  jenkins
+9109cd417bf1        cprimedevops/hygieia-api:latest                    "/bin/sh -c './proper"   About a minute ago   Up About a minute   0.0.0.0:8080->8080/tcp                                                                  hygieia-api
+23315281dc19        cprimedevops/mongodb:latest                        "docker-entrypoint.sh"   About a minute ago   Up About a minute   0.0.0.0:27017->27017/tcp                                                                mongodb
+929b5a0ad0c7        cprimedevops/jira:hygieiaDemo                      "/bin/sh -c '/opt/app"   About a minute ago   Up About a minute   0.0.0.0:8081->8081/tcp                                                                  jira
+e140e18f34cb        cprimedevops/sonarqube                             "./bin/run.sh"           About a minute ago   Up About a minute   0.0.0.0:9000->9000/tcp, 0.0.0.0:9092->9092/tcp                                          sonarqube
+```
+
+Now you can go to a browser and enter the following to access the Hygieia dashboard:
+http://${docker-host-ip-address}:8088 
+This will bring you to the Hygieia dashboard:
+
+![alt text](https://github.com/jrduff3/hygieia-poc/dashboard1.png)
+
+You can login hto the dashboard by selecting the Login button:   on te upper right pane of the screen:
