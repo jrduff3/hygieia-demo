@@ -118,84 +118,84 @@ Now you can go to a browser and enter the following to access the Hygieia dashbo
 http://${docker-host-ip-address}:8088 
 This will bring you to the Hygieia dashboard:
 
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/dashboard1.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/dashboard1.png)
 
-You can login hto the dashboard by selecting the Login button:![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/loginbutton.png) on te upper right pane of the screen:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/login.png)
+You can login hto the dashboard by selecting the Login button:![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/loginbutton.png) on te upper right pane of the screen:
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/login.png)
 
 The username is "user" and password is "password"
 Then select the Consumer Application dashboard under all dashboards:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/calogin.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/calogin.png)
 
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/cadashboard.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/cadashboard.png)
 
 Now you can log into Jenkins: http://${docker-host-ip-address}:8090
 username: admin
 password: password
 
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jenkinslogin.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jenkinslogin.png)
 
 Select the ConsumerApplication project:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jenkinsdashboard.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jenkinsdashboard.png)
 
 Then click build now on the left pane:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jenkinsproject.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jenkinsproject.png)
 
 You should see build 7 pop up:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jenkinsprogress.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jenkinsprogress.png)
 
 Select the status bar and this will bring you to the console output:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jenkinsconsoleoutput.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jenkinsconsoleoutput.png)
 
 Once the build is complete it will take up to 5 mins to sync with the Hygieia Dashboard. You should now see a Build 7:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/hygieia-jenkins.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/hygieia-jenkins.png)
 
 You can also log into JIRA at http://${docker-host-ip-address}:8081:
 user: admin
 password: password
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jiralogin.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jiralogin.png)
 
 Go to the ConsumerApplicationKanban project:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jiraproject.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jiraproject.png)
 
 Create a new issue using the create button on the top navigation pane. 
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jiracreate1.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jiracreate1.png)
 
 Enter a Summary and description for the new issue and select create:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/jiracreate2.png
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/jiracreate2.png
 
 You should now see the issue appear in the Hygieia dashboard under the Feature widgets "issues in progress":
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/hygieia-jira.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/hygieia-jira.png)
 
-The code repo widget by default for this POC is hooked into https://github.com/jrduff3/consumerapplication.git. You can configure another repo by selecting the configuration icon(![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/settings.png)) and update the configuration for another GitHub repo:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/gitconfig.png)
+The code repo widget by default for this POC is hooked into https://github.com/jrduff3/consumerapplication.git. You can configure another repo by selecting the configuration icon(![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/settings.png)) and update the configuration for another GitHub repo:
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/gitconfig.png)
 
 The POC also has SonarQube server and the widget configured. To access SonarQube Server go to http://${docker-host-ip-address}:9000 and login:
 username: admin
 password: admin
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/sonarqubelogin.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/sonarqubelogin.png)
 
 Select projects and show all projects:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/sq1.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/sq1.png)
 
 The ConsumerApplication project is the analysis pushed from the Jenkins build:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/sq2.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/sq2.png)
 
 This information shows up in the Hygieia's Quality widget, currently this project does not have any code coverage but the lines analyzed should match up:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/hygieia-sq.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/hygieia-sq.png)
 
 ### Mongo Database:
 The Mongo database holds the collections from all the collectors. If the git commits contain the JIRA issue key in the commit message it would be possible to link this data and create a new dashboard widget to show the traceability. Here is an example of the document for the different types of collections to show what data is available:
 Document from Source Code Collection:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/robomongo.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/robomongo.png)
 
 Document from Build Collection:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/robomongo2.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/robomongo2.png)
 
 Document from Feature Collection:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/robomongo3.png)
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/robomongo4.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/robomongo3.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/robomongo4.png)
 
 Document from Code Quality Collection:
-![alt text](https://github.com/jrduff3/hygieia-demo/images/blob/master/robomongo5.png)
+![alt text](https://github.com/jrduff3/hygieia-demo/blob/master/images/robomongo5.png)
 
